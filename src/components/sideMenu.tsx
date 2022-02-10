@@ -27,7 +27,7 @@ class SideMenu extends Component {
                 <div id="notes" onClick={() => this.activateButton("notes")}>
                     Notes
                 </div>
-                <div>
+                <div onClick={() => this.closeMenu()}>
                     close
                 </div>
             </React.Fragment>
@@ -35,7 +35,7 @@ class SideMenu extends Component {
     }
 
     renderActive = () => {
-        if(this.state.active !== null)
+        if (this.state.active !== null)
         {
             this.state.buttons.forEach((item) => {document.getElementById(item)!.style.color = "#7c7a7a"});
             document.getElementById(this.state.active)!.style.color = "lime";
@@ -43,13 +43,42 @@ class SideMenu extends Component {
     };
 
     activateButton(id: string) {
-       this.setState({active: id});
-       this.renderActive();
+        this.setState({active: id});
+        this.renderActive();
     }
 
     closeMenu = () => {
+        let width = document.getElementById("side-menu")!.clientWidth;
+        let position = 0;
 
-    }
+        let movement = setInterval(function () {
+            position -= 1;
+            document.getElementById("side-menu")!.style.left = position+"px";
+            if (position === (width *-1))
+            {
+                document.getElementById("side-menu")!.style.display = "none";
+                clearInterval(movement);
+            }
+
+        }, 25);
+
+    };
+
+    openMenu = () => {
+        document.getElementById("side-menu")!.style.display = "flex";
+        let position = -200;
+
+        let movement = setInterval(function () {
+            position += 1;
+            document.getElementById("side-menu")!.style.left = position+"px";
+            if (position === 0)
+            {
+                clearInterval(movement);
+            }
+
+        }, 25);
+
+    };
 
 }
 

@@ -4,7 +4,7 @@
 body {
   margin: 0;
   font-family: Quicksand;
-  background: black; }
+  background: #ababab; }
   body * > a {
     text-decoration: none; }
 
@@ -25,11 +25,11 @@ body {
   background: #373737;
   font-size: 1.5em;
   color: #7c7a7a;
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 100px;
-  left: 0;
+  left: -300px;
   height: 100%;
   width: 300px;
   align-items: center; }
@@ -40,5 +40,8 @@ body {
     height: 100px;
     align-items: center;
     justify-content: center; }
+
+.orange {
+  color: #f90; }
 
 /*# sourceMappingURL=stylesheet.css.map */
