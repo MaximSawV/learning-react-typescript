@@ -1,7 +1,7 @@
 import React from 'react';
 import {MenuItemDef} from "../lib/item-registry";
 import  styled from '@emotion/styled';
-import NavLink from "react-router-dom";
+import {Route} from 'react-router-dom';
 
 export interface MenuItemProps {
     item: MenuItemDef;
@@ -23,8 +23,8 @@ export default function MenuItem({item}: MenuItemProps) {
     `;
 
     return (
-        <NavLink key={item.key} to={`/${item.label}`}>
-            {item.label}
-        </NavLink>
+        <Route>
+
+        </Route>
     );
 }
