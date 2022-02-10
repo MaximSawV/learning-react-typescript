@@ -1,49 +1,32 @@
 export const menuItems: MenuItemDef[] = [
     {
         key: 1,
-        label: 'Item 1',
+        label: 'Login',
     },
     {
-        key: 2,
-        label: 'Hat children',
-        children: [
-            {
-                key: 1,
-                label: 'Kind 1'
-            },
-            {
-                key: 2,
-                label: 'Kind 2'
-            },
-            {
-                key: 3,
-                label: 'Kind 3'
-            },
-        ]
+        key: 1,
+        label: 'Analytics',
     },
     {
         key: 3,
-        label: 'Itemasdasdasdsdgdfgv 1',
+        label: 'Transactions',
     },
     {
         key: 4,
-        label: 'Itemfghfghfghf 1',
-        color: '#627cff',
+        label: 'Scheme',
     },
     {
         key: 5,
-        label: 'Itefghfghfghm 1',
+        label: 'Calendar',
     },
     {
         key: 6,
-        label: 'ghfghfgh 1',
+        label: 'Notes',
     },
 ];
 
 export type MenuItemDef =  {
     key: number;
     label: string;
-    children?: MenuItemDef[];
     isOpen?: boolean;
-    color?: string;
 }

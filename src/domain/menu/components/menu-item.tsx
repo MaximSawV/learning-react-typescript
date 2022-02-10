@@ -1,24 +1,30 @@
 import React from 'react';
 import {MenuItemDef} from "../lib/item-registry";
+import  styled from '@emotion/styled';
+import NavLink from "react-router-dom";
 
 export interface MenuItemProps {
     item: MenuItemDef;
     onClick?: (item: MenuItemDef) => void;
 }
 
-export default function MenuItem({item, onClick}: MenuItemProps) {
+export default function MenuItem({item}: MenuItemProps) {
+
+    const Button = styled.li`
+        display: flex;
+        margin: 10px;
+        width: 200px;
+        height: 100px;
+        align-items: center;
+        justify-content: center;
+        
+        &: > NavLink {
+            color: isActive ? "lime" : "#7c7a7a";
+    `;
 
     return (
-        <li key={item.key} onClick={() => onClick && onClick(item)} className={item.color !== undefined ? 'orange' : ''}>
+        <NavLink key={item.key} to={`/${item.label}`}>
             {item.label}
-
-            {item.children && item.isOpen && item.children.length > 0 && (
-                <ul>
-                    {item.children.map((child) => (
-                        <MenuItem item={child}/>
-                    ))}
-                </ul>
-            )}
-        </li>
+        </NavLink>
     );
 }
