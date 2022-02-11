@@ -9,17 +9,18 @@ export default function Menu() {
     const {myMenuItems, toggleOpen} = useMenuItems();
 
     return (
-        <ul className={css(`
+        <ul className={css`
             margin: 0;
             padding: 0;
             display: flex;
-            position: absolute;
+            position: fixed;
+            top: 10%;
             width: 10%;
             justify-content: center;
             font-size: 2em;
             background: #373737;
             height: -webkit-fill-available;
-        `)}>
+        `}>
             <nav>
 
                 {myMenuItems.map((item, index) => {

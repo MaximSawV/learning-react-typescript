@@ -3,9 +3,9 @@ import AnalyticsPage from './../../content/analytics/components/analytics-page';
 
 export const menuItems: MenuItemDef[] = [
     {
-        key: 'login',
-        label: 'Login',
-        component: <div>Login</div>
+        key: 'repository',
+        label: 'Repositories',
+        component: <div>Repository</div>
     },
     {
         key: 'analytics',

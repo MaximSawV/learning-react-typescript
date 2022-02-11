@@ -1,29 +1,33 @@
 import React from 'react';
-import  styled from '@emotion/styled';
+import  {css} from '@emotion/css';
 
 export default function Header() {
 
-    const Header = styled.div`
-        width: 100%;
-        height: 100px;
-        background: #373737;
-        color: lime;
-        display: flex;
-        align-items: center;
-        font-size: 3em;
-    `;
-
-    const Logo = styled.img`
-        height: 100px;
-        width: 100px;
-    `;
-
     return(
-        <Header>
+        <div className={css(`
+            width: 100%;
+            height: 10%;
+            background: #373737;
+            display: flex;
+            align-items: center;
+            font-size: 3em;
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            & > h1 {
+                margin: 0;
+                color: lime;
+            }
+
+        `)}>
             <a href="/">
-                <Logo src={require("../../images/financio-Logo.png")} alt="logo"/>
+                <img src={require("../../images/financio-Logo.png")} alt="logo" className={css(`
+                    height: 100px;
+                    width: 100px;
+                `)}/>
             </a>
             <h1>Daitemo</h1>
-        </Header>
+        </div>
     )
 }
