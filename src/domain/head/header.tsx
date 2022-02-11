@@ -1,5 +1,4 @@
 import React from 'react';
-import './../style-sheets/stylesheet.css';
 import  styled from '@emotion/styled';
 
 export default function Header() {
@@ -22,7 +21,7 @@ export default function Header() {
     return(
         <Header>
             <a href="/">
-                <Logo src={require("../images/financio-Logo.png")} alt="logo"/>
+                <Logo src={require("../../images/financio-Logo.png")} alt="logo"/>
             </a>
             <h1>Daitemo</h1>
         </Header>

@@ -1,9 +1,15 @@
 @font-face {
   font-family: Quicksand;
   src: url("./../Fonts/quicksand/Quicksand-Regular.otf"); }
+html {
+  height: 100%;
+  width: 100%; }
+
 body {
   margin: 0;
   font-family: Quicksand;
+  height: 100%;
+  width: 100%;
   background: #ababab; }
   body * > a {
     text-decoration: none; }
