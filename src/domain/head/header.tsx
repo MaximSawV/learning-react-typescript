@@ -6,11 +6,11 @@ export default function Header() {
     return(
         <div className={css`
             width: 100%;
-            height: 15%;
+            height: 5%;
             background: white;
             display: flex;
             align-items: center;
-            font-size: 3em;
+            font-size: 2em;
             position: fixed;
             left: 0;
             top: 0;
@@ -21,10 +21,7 @@ export default function Header() {
 
         `}>
             <a href="/">
-                <img src={require("../../images/financio-Logo.png")} alt="logo" className={css(`
-                    height: 100px;
-                    width: 100px;
-                `)}/>
+                <img src={require("../../images/financio-Logo.png")} alt="logo" className={css`height: 66px`}/>
             </a>
             <h1>Daitemo</h1>
         </div>

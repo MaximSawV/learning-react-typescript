@@ -1,12 +1,17 @@
 import {ReactNode} from 'react';
 import AnalyticsPage from './../../content/analytics/components/analytics-page';
-import RepositoryPage from './../../content/repositories/components/repository-page';
+import RegistrationPage from './../../../registration-field';
 
 export const menuItems: MenuItemDef[] = [
     {
+        key: 'registration',
+        label: 'Sign in',
+        component: <RegistrationPage />
+    },
+    {
         key: 'repository',
         label: 'Repositories',
-        component: <RepositoryPage />
+        component: <div>Repository</div>
     },
     {
         key: 'analytics',
