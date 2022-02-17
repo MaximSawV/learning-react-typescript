@@ -4,9 +4,14 @@ import RegistrationPage from './../../../registration-field';
 
 export const menuItems: MenuItemDef[] = [
     {
-        key: 'registration',
-        label: 'Sign in',
-        component: <RegistrationPage />
+        key: 'login',
+        label: 'Login',
+        component: <div>Login</div>,
+        subItem: {
+            key: 'signin',
+            label: 'Sign in',
+            component: <RegistrationPage/>
+        }
     },
     {
         key: 'repository',
@@ -45,4 +50,5 @@ export type MenuItemDef =  {
     label: string;
     component: ReactNode;
     isOpen?: boolean;
+    subItem?: MenuItemDef;
 }

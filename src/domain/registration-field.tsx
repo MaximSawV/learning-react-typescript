@@ -1,61 +1,88 @@
-import React from 'react';
-import { Form, Input, Button, Divider } from 'antd';
-import { EyeInvisibleOutlined, EyeTwoTone, InfoCircleOutlined } from '@ant-design/icons';
+import React, {useState} from 'react';
+import { Form, Input, Button, Divider, Checkbox, AutoComplete  } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone, InfoCircleOutlined  } from '@ant-design/icons';
 import {css} from "@emotion/css";
-import Draggable from 'react-draggable';
 
 export default function Registration() {
 
-    const validateForm = (values: any) => {
-        console.log('Received values of form: ', values);
+    const { Option } = AutoComplete;
+
+    const [result, setResult] = useState<string[]>([]);
+    const handleSearch = (value: string) => {
+        let res: string[] = [];
+        if (!value || value.indexOf('@') >= 0) {
+            res = [];
+        } else {
+            res = ['gmail.com', 'web.de', 'yahoo.com'].map(domain => `${value}@${domain}`);
+        }
+        setResult(res);
     };
 
     return(
         <div>
             <h1>Registration</h1>
             <Divider />
-            <Form className={css`width: fit-content`} onFinish={validateForm}>
+            <Form className={css`width: fit-content`} autoComplete='off' labelCol={{ span: 8 }}>
                 <Form.Item
                     label="Username"
                     name="username"
-                    rules={[{ required: true, message: 'Please input your username!'},
-                        {min: 3, message: 'Username cannot be less than 3 characters'},
-                        {max: 24, message: 'Username cannot be more than 24 characters'},
+                    rules={[
+                        { required: true, message: 'Please enter a username!'},
+                        {min: 3, message: 'username cannot be less than 3 characters'},
+                        {max: 24, message: 'username cannot be more than 24 characters'},
+                        {whitespace: true, message: 'Please enter a valid username!'}
                     ]}
+                    hasFeedback
                 >
-                    <Input className={css`width: 300px; align-self: end`} />
+                    <Input className={css`width: 300px;`} />
                 </Form.Item>
                 <Form.Item
                     label="Email"
                     name="email"
-                    rules={[{ required: true, message: 'Please input your email-address!'}]}
+                    rules={[
+                        { required: true, message: 'Please enter a email!'},
+                        {type:'email', message: 'Please enter a valid email!'}
+                    ]}
+                    hasFeedback
                 >
-                    <Input className={css`width: 300px`} />
+                    <AutoComplete className={css`width: 300px;`} onSearch={handleSearch}>
+                        {result.map((email: string) => (
+                            <Option key={email} value={email}>
+                                {email}
+                            </Option>
+                        ))}
+                    </AutoComplete>
                 </Form.Item>
                 <Form.Item
                     label="Password"
                     name="plain_password"
-                    rules={[{ required: true, message: 'Please create a password!'}]}
+                    rules={[
+                        { required: true, message: 'Please create a password!'},
+                    ]}
                     tooltip={{ title: 'It can contain: 0-9; Aa-Zz; -._?!ß', icon: <InfoCircleOutlined /> }}
+                    hasFeedback
                 >
                     <Input.Password className={css`width: 300px`} />
                 </Form.Item>
                 <Form.Item
                     label="Confirm password"
                     name="confirm_password"
-                    rules={[{ required: true, message: 'Please confirm your password!'}]}
+                    rules={[
+                        { required: true, message: 'Please confirm your password!'}
+                        ]}
+                    hasFeedback
                 >
                     <Input.Password className={css`width: 300px`} />
                 </Form.Item>
                 <Form.Item>
+                    <Checkbox> Agree to <a href="#">Term and Conditions</a></Checkbox>
+                </Form.Item>
+                <Form.Item>
                     <Button type="primary" htmlType="submit">
-                        Submit
+                        Sign up
                     </Button>
                 </Form.Item>
             </Form>
-            <Draggable>
-                <div>Hi</div>
-            </Draggable>
         </div>
     );
 }
