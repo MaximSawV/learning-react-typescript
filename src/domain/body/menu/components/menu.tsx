@@ -14,11 +14,11 @@ export default function Menu() {
             padding: 0;
             display: flex;
             position: fixed;
-            top: 10%;
+            top: 15%;
             width: 10%;
             justify-content: center;
             font-size: 2em;
-            background: #373737;
+            background: white;
             height: -webkit-fill-available;
         `}>
             <nav>

@@ -9,12 +9,8 @@ body {
   margin: 0;
   font-family: Quicksand;
   height: 100%;
-  width: 100%;
-  background: #ababab; }
+  width: 100%; }
   body * > a {
     text-decoration: none; }
-
-.green {
-  color: lime; }
 
 /*# sourceMappingURL=stylesheet.css.map */

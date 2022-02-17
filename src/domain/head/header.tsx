@@ -4,10 +4,10 @@ import  {css} from '@emotion/css';
 export default function Header() {
 
     return(
-        <div className={css(`
+        <div className={css`
             width: 100%;
-            height: 10%;
-            background: #373737;
+            height: 15%;
+            background: white;
             display: flex;
             align-items: center;
             font-size: 3em;
@@ -17,10 +17,9 @@ export default function Header() {
 
             & > h1 {
                 margin: 0;
-                color: lime;
             }
 
-        `)}>
+        `}>
             <a href="/">
                 <img src={require("../../images/financio-Logo.png")} alt="logo" className={css(`
                     height: 100px;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.less';
-import { DatePicker, Select, Space, Spin } from 'antd';
+import { DatePicker, Select, Space } from 'antd';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -16,7 +16,6 @@ export default function SwitchablePicker() {
                 <Option value="quarter">Quarter</Option>
                 <Option value="year">Year</Option>
             </Select>
-            <Spin spinning />
             <RangePicker picker ={type}/>
         </Space>
     );

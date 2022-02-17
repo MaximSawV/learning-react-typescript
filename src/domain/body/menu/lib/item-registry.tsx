@@ -1,11 +1,12 @@
 import {ReactNode} from 'react';
 import AnalyticsPage from './../../content/analytics/components/analytics-page';
+import RepositoryPage from './../../content/repositories/components/repository-page';
 
 export const menuItems: MenuItemDef[] = [
     {
         key: 'repository',
         label: 'Repositories',
-        component: <div>Repository</div>
+        component: <RepositoryPage />
     },
     {
         key: 'analytics',

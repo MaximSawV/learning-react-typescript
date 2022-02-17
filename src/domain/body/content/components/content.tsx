@@ -9,10 +9,12 @@ export default function ContentField() {
     return(
         <div className={css`
           position: fixed;
-          top: 10%;
+          top: 15%;
           left: 10%;
           width: 90%;
-          height: 90%;
+          height: 85%;
+          border-radius: 18px 0 0 0;
+          background-color: #ababab;
 
         `}>
                 <Routes>

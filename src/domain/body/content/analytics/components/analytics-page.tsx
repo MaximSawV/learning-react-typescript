@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {css} from "@emotion/css";
 import 'antd/dist/antd.css';
 import DatePicker from './../../components/datepicker';
 
 
 export default function AnalyticsPage() {
-
-    const [marginLeft, setMarginLeft] = useState(0);
 
     return (
         <div className={css`
@@ -15,7 +13,6 @@ export default function AnalyticsPage() {
             height: 95%;
             width: 95%;
             margin: 1%;
-            background: #373737;
         `}>
             <div className={css`
                 display: flex;
