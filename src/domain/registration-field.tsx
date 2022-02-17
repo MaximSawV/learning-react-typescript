@@ -1,33 +1,27 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox, Divider } from 'antd';
+import { Form, Input, Button, Divider } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, InfoCircleOutlined } from '@ant-design/icons';
 import {css} from "@emotion/css";
+import Draggable from 'react-draggable';
 
 export default function Registration() {
 
-    const onFinish = (values: any) => {
+    const validateForm = (values: any) => {
         console.log('Received values of form: ', values);
-        validateUsername(values["username"])
-    };
-
-    const validateUsername = (username: string) => {
-        if (username.length >= 3 && username.length < 25)
-        {
-            console.log('Username is Valid');
-        } else {
-            console.warn('Username is not Valid');
-        }
     };
 
     return(
         <div>
             <h1>Registration</h1>
             <Divider />
-            <Form className={css`width: fit-content`} onFinish={onFinish}>
+            <Form className={css`width: fit-content`} onFinish={validateForm}>
                 <Form.Item
                     label="Username"
                     name="username"
-                    rules={[{ required: true, message: 'Please input your username!'}]}
+                    rules={[{ required: true, message: 'Please input your username!'},
+                        {min: 3, message: 'Username cannot be less than 3 characters'},
+                        {max: 24, message: 'Username cannot be more than 24 characters'},
+                    ]}
                 >
                     <Input className={css`width: 300px; align-self: end`} />
                 </Form.Item>
@@ -59,6 +53,9 @@ export default function Registration() {
                     </Button>
                 </Form.Item>
             </Form>
+            <Draggable>
+                <div>Hi</div>
+            </Draggable>
         </div>
     );
 }
