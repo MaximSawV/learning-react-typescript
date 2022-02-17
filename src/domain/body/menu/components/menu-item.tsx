@@ -19,9 +19,7 @@ export default function MenuItem({item}: MenuItemProps) {
             align-items: center;
             justify-content: center;
 
-            &:hover > * {
-                color: lime !important;
-            }
+
         `)}>
             <NavLink to={`/${item.key}`} style={({ isActive }) => {return {color: isActive ? "lime" : "#7c7a7a"}}}>
                 {item.label}
