@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Form, Input, Button, Divider, Checkbox, AutoComplete  } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, InfoCircleOutlined  } from '@ant-design/icons';
 import {css} from "@emotion/css";
+import {Promise} from "q";
 
 export default function Registration() {
 
@@ -18,6 +19,9 @@ export default function Registration() {
         setResult(res);
     };
 
+    const [password, setPassword] = useState("");
+    const [conf_password, setconf_Password] = useState("");
+
     return(
         <div>
             <h1>Registration</h1>
@@ -30,7 +34,8 @@ export default function Registration() {
                         { required: true, message: 'Please enter a username!'},
                         {min: 3, message: 'username cannot be less than 3 characters'},
                         {max: 24, message: 'username cannot be more than 24 characters'},
-                        {whitespace: true, message: 'Please enter a valid username!'}
+                        {whitespace: true, message: 'Please enter a valid username!'},
+                        { pattern: /^[a-zA-Z0-9_.]+$/, message: 'Username can only include letters, numbers and "/_."!'}
                     ]}
                     hasFeedback
                 >
@@ -58,23 +63,29 @@ export default function Registration() {
                     name="plain_password"
                     rules={[
                         { required: true, message: 'Please create a password!'},
+                        { min: 8, message: "Password has to be at least 8 characters long!"},
+                        { pattern: /^[a-zA-Z0-9_.]+$/, message: 'Password can only include letters, numbers and "/_."!'}
                     ]}
-                    tooltip={{ title: 'It can contain: 0-9; Aa-Zz; -._?!ß', icon: <InfoCircleOutlined /> }}
+                    tooltip={{ title: 'At least 8 characters. Numbers, letters and special characters: "/_."', icon: <InfoCircleOutlined /> }}
                     hasFeedback
                 >
-                    <Input.Password className={css`width: 300px`} />
+                    <Input.Password className={css`width: 300px`} onChange={(e) => setPassword(e.target.value)}/>
                 </Form.Item>
                 <Form.Item
                     label="Confirm password"
                     name="confirm_password"
                     rules={[
-                        { required: true, message: 'Please confirm your password!'}
+                        { required: true, message: 'Please confirm your password!'},
                         ]}
                     hasFeedback
                 >
-                    <Input.Password className={css`width: 300px`} />
+                    <Input.Password className={css`width: 300px`} onChange={(e) => setconf_Password(e.target.value)}/>
                 </Form.Item>
-                <Form.Item>
+                <Form.Item
+                    rules={[
+                        { required: true, message:'You need to agree with our Terms and Conditions'},
+                    ]}
+                >
                     <Checkbox> Agree to <a href="#">Term and Conditions</a></Checkbox>
                 </Form.Item>
                 <Form.Item>

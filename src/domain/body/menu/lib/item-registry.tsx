@@ -1,47 +1,48 @@
 import {ReactNode} from 'react';
 import AnalyticsPage from './../../content/analytics/components/analytics-page';
 import RegistrationPage from './../../../registration-field';
+import RepositoryPage from './../../content/repositories/components/repository-table';
 
 export const menuItems: MenuItemDef[] = [
     {
         key: 'login',
-        label: 'Login',
+        label: 'Sign in',
         component: <div>Login</div>,
-        subItem: {
-            key: 'signin',
-            label: 'Sign in',
-            component: <RegistrationPage/>
-        }
+    },
+    {
+        key: 'registration',
+        label: 'Sign up',
+        component: <RegistrationPage/>,
     },
     {
         key: 'repository',
         label: 'Repositories',
-        component: <div>Repository</div>
+        component: <RepositoryPage />,
     },
     {
         key: 'analytics',
         label: 'Analytics',
-        component: <AnalyticsPage />
+        component: <AnalyticsPage />,
     },
     {
         key: 'transaction',
         label: 'Transactions',
-        component: <div>Transactions</div>
+        component: <div>Transactions</div>,
     },
     {
         key: 'scheme',
         label: 'Scheme',
-        component: <div>Scheme</div>
+        component: <div>Scheme</div>,
     },
     {
         key: 'calendar',
         label: 'Calendar',
-        component: <div>Calendar</div>
+        component: <div>Calendar</div>,
     },
     {
         key: 'notes',
         label: 'Notes',
-        component: <div>Notes</div>
+        component: <div>Notes</div>,
     },
 ];
 
@@ -50,5 +51,4 @@ export type MenuItemDef =  {
     label: string;
     component: ReactNode;
     isOpen?: boolean;
-    subItem?: MenuItemDef;
 }
