@@ -15,6 +15,7 @@ export default function ContentField() {
           width: 90%;
           height: 85%;
           border-radius: 18px 0 0 0;
+          overflow-scrolling: auto;
 
         `}>
                 <Routes>

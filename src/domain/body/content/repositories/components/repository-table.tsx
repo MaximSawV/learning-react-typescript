@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import { Table, Button, Space } from 'antd';
+import {render} from 'react-dom';
+import { Table, Button, Space, Popconfirm, Form } from 'antd';
 import {Repositories, RepositoryDef} from './../lib/repositories-demo';
+import RepositoryForm from './repository-form';
 
 export default function RepositoryTable() {
 
@@ -14,7 +16,12 @@ export default function RepositoryTable() {
             console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
         }
     };
-
+    
+    const [data, setData] = useState();
+    
+    const addData = () => {
+        render(<RepositoryForm />, document.getElementById('form-space'));
+    };
 
     const columns = [
         {
@@ -41,22 +48,33 @@ export default function RepositoryTable() {
     ];
 
     return(
-        <div>
-            <Table
-                rowSelection={{
-                    ...rowSelection,
-                }}
-                columns={columns}
-                dataSource={Repositories}
-            />
-            <Space>
-                <Button disabled={!hasSelectedRows} onClick={() => {console.log(numberOfRows+" Rows Edited")}}>
-                    Edit
-                </Button>
-                <Button disabled={!hasSelectedRows} onClick={() => {console.log(numberOfRows+" Rows Deleted")}}>
-                    Delete
-                </Button>
-            </Space>
-        </div>
+        <>
+            <div>
+                <Table
+                    rowSelection={{
+                        ...rowSelection,
+                    }}
+                    columns={columns}
+                    dataSource={Repositories}
+                    title={() => 'Your Repositories'}
+                    footer={() => (
+                        <Space>
+                            <Button disabled={!hasSelectedRows} onClick={() => {console.log(numberOfRows+" Rows Edited")}}>
+                                Edit
+                            </Button>
+                            <Button disabled={!hasSelectedRows} onClick={() => {console.log(numberOfRows+" Rows Deleted")}}>
+                                Delete
+                            </Button>
+                            <Button onClick={() => addData()}>
+                                Add
+                            </Button>
+                        </Space>
+                        )}
+                />
+            </div>
+            <span id="form-space">
+                
+            </span>
+        </>
     );
 }
